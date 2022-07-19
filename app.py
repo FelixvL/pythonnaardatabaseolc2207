@@ -25,6 +25,13 @@ def hello_world():
     totaaltekst += geefEindTekst()
     return totaaltekst
 
+
+@app.route("/koopmeubel")
+def tweedefunctie():
+    return "dit is de tweede pagina om te kopen"
+
+
+
 @app.route("/voorbeeldtemplate")
 def meteentemplate():
     mycursor.execute("SELECT * FROM meubel")
@@ -52,6 +59,7 @@ h3{
 <script>
     function daargaanwe(idmeubel){
         alert("hij doet het"+idmeubel);
+        window.location = "http://localhost:5000/koopmeubel"
     }
 </script>
 <div>
