@@ -28,7 +28,9 @@ def hello_world():
 
 @app.route("/koopmeubel/<idvanmeubel>")
 def tweedefunctie(idvanmeubel):
-    return "dit is de tweede pagina om te kopen"+str(idvanmeubel)
+    mycursor.execute("SELECT * FROM meubel WHERE id = "+str(idvanmeubel)+" ;")
+    myresult = mycursor.fetchone()
+    return render_template('kooppagina.html', meubel=myresult)
 
 
 
