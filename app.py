@@ -18,7 +18,27 @@ mycursor = mydb.cursor()
 def hello_world():
     mycursor.execute("SELECT * FROM meubel")
     myresult = mycursor.fetchall()
-    boventekst = """
+    totaaltekst = ""
+    totaaltekst += geefBovenTekst()
+    totaaltekst += geefTussenTekst(myresult)
+    totaaltekst += geefEindTekst()
+    return totaaltekst
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def geefBovenTekst():
+    return """
 <style>
 h3{
     color:orange;
@@ -28,30 +48,21 @@ h3{
     <h1>Dit zijn onze meubels</h1>
 </div>
     """
-    tussentekst = ""
-    for x in myresult:
+
+def geefTussenTekst(recordset):
+    tempTekst = ""
+    for x in recordset:
         #print(x[1])
-        tussentekst += "<div><h3>"
-        tussentekst += x[2]
-        tussentekst += "</h3><img src="
-        tussentekst += x[1]
-        tussentekst += " width=150px></div>"
-    ondertekst = """
+        tempTekst += "<div><h3>"
+        tempTekst += x[2]
+        tempTekst += "</h3><img src="
+        tempTekst += x[1]
+        tempTekst += " width=180px></div>"
+    return tempTekst
+
+def geefEindTekst():
+    return """
 <div>
     <hr>
 </div>
     """
-
-    detekst = """
-
-
-<div>
-    <h3>Stoel</h3>
-    <img src="stoel.jpg" width="150px">
-
-</div>
-"""
-    return boventekst + tussentekst + ondertekst
-
-
-#    SELECT * FROM meubel
