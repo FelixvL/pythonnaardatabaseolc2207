@@ -26,9 +26,9 @@ def hello_world():
     return totaaltekst
 
 
-@app.route("/koopmeubel")
-def tweedefunctie():
-    return "dit is de tweede pagina om te kopen"
+@app.route("/koopmeubel/<idvanmeubel>")
+def tweedefunctie(idvanmeubel):
+    return "dit is de tweede pagina om te kopen"+str(idvanmeubel)
 
 
 
@@ -58,8 +58,7 @@ h3{
 </style>
 <script>
     function daargaanwe(idmeubel){
-        alert("hij doet het"+idmeubel);
-        window.location = "http://localhost:5000/koopmeubel"
+        window.location = "http://localhost:5000/koopmeubel/"+idmeubel
     }
 </script>
 <div>
