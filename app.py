@@ -4,4 +4,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, Extra dingen!</p>"
+    detekst = """
+<div>
+    <h1>Tafel</h1>
+    <img src="tafel.jpg">
+
+</div>
+"""
+    return detekst
