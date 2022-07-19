@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -24,7 +25,11 @@ def hello_world():
     totaaltekst += geefEindTekst()
     return totaaltekst
 
-
+@app.route("/voorbeeldtemplate")
+def meteentemplate():
+    mycursor.execute("SELECT * FROM meubel")
+    myresult = mycursor.fetchall()
+    return render_template('voorbeeld.html', naam="doen", users=myresult)
 
 
 
