@@ -31,15 +31,11 @@ h3{
     tussentekst = ""
     for x in myresult:
         #print(x[1])
-        tussentekst += """
-<div>
-    <h3>"""
+        tussentekst += "<div><h3>"
         tussentekst += x[2]
-        tussentekst += """</h3>
-    <img src="""
+        tussentekst += "</h3><img src="
         tussentekst += x[1]
-        tussentekst += """ width="150px">
-</div>"""
+        tussentekst += " width=150px></div>"
     ondertekst = """
 <div>
     <hr>
