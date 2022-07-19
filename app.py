@@ -49,6 +49,11 @@ h3{
     color:orange;
 }    
 </style>
+<script>
+    function daargaanwe(idmeubel){
+        alert("hij doet het"+idmeubel);
+    }
+</script>
 <div>
     <h1>Dit zijn onze meubels</h1>
 </div>
@@ -62,7 +67,9 @@ def geefTussenTekst(recordset):
         tempTekst += x[2]
         tempTekst += "</h3><img src="
         tempTekst += x[1]
-        tempTekst += " width=180px></div>"
+        tempTekst += " width=180px></div><button onclick=daargaanwe("
+        tempTekst += str(x[0])
+        tempTekst += ")>koopmij</button>"
     return tempTekst
 
 def geefEindTekst():
