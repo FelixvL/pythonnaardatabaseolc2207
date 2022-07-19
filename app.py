@@ -2,8 +2,25 @@ from flask import Flask
 
 app = Flask(__name__)
 
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",  #port erbij indien mac
+  user="root",
+  password="",
+  database="databasevoormeubelwinkel"
+)
+
+mycursor = mydb.cursor()
+
+
 @app.route("/")
 def hello_world():
+    mycursor.execute("SELECT * FROM meubel")
+    myresult = mycursor.fetchall()
+    for x in myresult:
+        print(x[1])
+
     detekst = """
 <style>
     h3{
@@ -28,3 +45,6 @@ def hello_world():
 </div>
 """
     return detekst
+
+
+#    SELECT * FROM meubel
